@@ -16,15 +16,14 @@
     <body>
        {{Auth::user()->name}}
      
-       <h1>アイドル一覧</h1>
+       <h1>診断結果</h1>
        <div class='posts'>
             @foreach ($idols as $idol)
                 <div class='post'>
                    
-                    <p class='body'><a href='/posts/{{ $idol->post->id }}'>{{ $idol->name }}</a>></p>
+                    <p class='body'>{{ $idol->name }}</p>
                 </div>
             @endforeach
-        {{ $message }}
        </div>
        
        <div class='paginate'>

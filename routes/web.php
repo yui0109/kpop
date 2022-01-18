@@ -18,14 +18,23 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/posts/{post}/edit', 'PostController@edit');
     Route::put('/posts/{post}', 'PostController@update');
     
+    Route::get('/test','IdolController@test');
+   
     Route::get('/idols','IdolController@search');
+    
     
     Route::delete('/posts/{post}', 'PostController@delete');
     Route::get('/posts/{post}', 'PostController@show');
     Route::post('/posts', 'PostController@store');
+    
+    Route::post('/posts/{post}/post_user',[PostUserController::class,'store'])->name('post_user.store');
+    Route::delete('/posts/{post}/unpost_user',[PostUserController::class,'destroy'])->name('post_user.deatrooy');
+    Route::get('/post_user',[PostController::class,'post_user'])->name('post_user');
 });
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/result','IdolController@result');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\PostUser;
+use App\Idol;
 use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
@@ -16,9 +18,9 @@ class PostController extends Controller
     {
         return view('posts/show')->with(['post' => $post]);
     }
-    public function create()
+    public function create(Idol $idol)
     {
-        return view('posts/create');
+        return view('posts/create')->with(['idols' =>$idol->get()]);
     }
     public function store(Post $post, PostRequest $request)
     {
@@ -45,6 +47,14 @@ class PostController extends Controller
        return redirect('/');
     }
     
+    
+    public function post_user_posts(){  //あるユーザーがブックマークした記事のリソースに post_user_postss() メソッドでアクセス
+        $pots->Auth::user()->post_user_posts()->orderBy('created_at','desc')->paginate(10);
+        $data = [
+            'posts' => $posts,
+            ];
+            return view('posts.post_user',$data);
+    }
     
     
 }

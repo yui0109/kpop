@@ -16,7 +16,7 @@
     <body>
        {{Auth::user()->name}}
      
-       <h1>K-POPアイドル辞典</h1>
+       <h2>K-POPアイドル辞典</h2>
        <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
@@ -31,11 +31,15 @@
        </div>
        <p class='create'>[<a href='/posts/create'>作成</a>]</p>
        
-       <form action="/idols" method="POST" class="form-inline my-2 my-lg-0 ml-2"> 
-          <div class="form-group">
-          <input type="search" class="form-control mr-sm-2" name="search"  value="{{request('search')}}" placeholder="キーワードを入力" aria-label="検索...">
-          </div>
-          <input type="submit" value="検索" class="btn btn-info">
+       <form action="/idols" method="GET">
+            @csrf
+           
+            <div class="body">
+                <textarea name="keyword" placeholder="グループ名を入力してください。"></textarea>
+                <p class="keyword_error" style="color:red">{{ $errors->first('keyword') }}</p>
+            </div>
+            <input type="submit" value="検索"/>
+            <p class='test'>[<a href='/test'>テスト</a>]</p>
         </form>
     </body>
 </html>

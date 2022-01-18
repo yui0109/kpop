@@ -18,6 +18,7 @@
             <h2 class='title'>{{ $post->title }}</h2>
             <p class='body'>{{ $post->body }}</p>
             <p class='updated_at'>{{ $post->updated_at }}</p>
+            <p >アイドルは{{ $post->idol->name }}</p>
         </div>
         <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
     　  <form action="/posts/{{ $post->id }}" id="form_delete" method="post">

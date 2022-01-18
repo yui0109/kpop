@@ -21,12 +21,17 @@ class Post extends Model
 protected $fillable = [
     'title',
     'body',
+    'idol_id',
     ];
     
     
 public function idol()
 {
     return $this->belongsTo('App\Idol');
+}
+public function users()
+{
+    return $this->belongsToMany('App\User');
 }
 
 }
