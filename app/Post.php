@@ -34,4 +34,7 @@ public function users()
     return $this->belongsToMany('App\User');
 }
 
+public function revisions(){
+    return $this->belongsTo('App\Revision');
+}
 }

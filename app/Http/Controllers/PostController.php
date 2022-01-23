@@ -48,12 +48,12 @@ class PostController extends Controller
     }
     
     
-    public function post_user_posts(){  //あるユーザーがブックマークした記事のリソースに post_user_postss() メソッドでアクセス
+    public function post_user_posts(){  //あるユーザーがブックマークした記事のリソースに post_user_posts() メソッドでアクセス
         $pots->Auth::user()->post_user_posts()->orderBy('created_at','desc')->paginate(10);
         $data = [
             'posts' => $posts,
             ];
-            return view('posts.post_user',$data);
+            return view('posts/post_user',$data);
     }
     
     

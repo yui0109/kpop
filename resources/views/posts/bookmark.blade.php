@@ -14,6 +14,7 @@
     </head>
     <body>
      <h1 class="page-heading">ブックマークした記事</h1>
+     <div class="bookmaark">
+         {{ $post->user->name }}
+     </div>
     </body>
-@include('posts.possts')
-@endsection()
