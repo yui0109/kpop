@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use App\PostUser;
 use App\Idol;
+use App\User;
+use App\Revision;
 use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
-    public function index(Post $post)
+    public function index(Post $post, Revision $revisions)
     {
-        return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
+        $revisions = Revision::all();
+        return view('posts/index')->with(['posts' => $post->getPaginateByLimit(),'revisions' => $revisions]);
         
     }
     public function show(Post $post)
@@ -47,14 +49,11 @@ class PostController extends Controller
        return redirect('/');
     }
     
-    
-    public function post_user_posts(){  //あるユーザーがブックマークした記事のリソースに post_user_posts() メソッドでアクセス
-        $pots->Auth::user()->post_user_posts()->orderBy('created_at','desc')->paginate(10);
-        $data = [
-            'posts' => $posts,
-            ];
-            return view('posts/post_user',$data);
+    public function bookmark(Post $post , User $user)
+    {
+        return view('posts/bookmark')->with(['posts' => $post , 'user' => $user]);
     }
+    
     
     
 }

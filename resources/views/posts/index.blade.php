@@ -41,6 +41,15 @@
             <input type="submit" value="検索"/>
             <p class='test'>[<a href='/test'>テスト</a>]</p>
         </form>
+        
+        <p class='bookmark'>[<a href='/posts/bookmark'>ブックマーク</a>]</p>
+       
+       <div class='paginate'>
+            
+       </div>
+        @foreach($revisions as $revision)
+        <li>{{ $revision->body }}{{ $revision->post_id }}</li>
+        @endforeach
     </body>
 </html>
 @endsection

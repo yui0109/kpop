@@ -9,9 +9,7 @@ use Illuminate\Http\Request;
 
 class IdolController extends Controller
 {
-    public function index(){
-      return view('idols/index');
-    }
+    
     public function search(IdolRequest $request) {
       $keyword = $request->keyword;
      

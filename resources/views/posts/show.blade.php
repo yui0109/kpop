@@ -31,6 +31,24 @@
         <div class='footer'>
             <a href='/'>戻る</a>
         </div>
+        
+        
+        @if($post->users()->where('user_id', Auth::id())->exists())
+         <div class="col-md-3">
+           <form action="/posts/{{ $post->id }}/unfavorites" method="POST">
+           @csrf
+           <input type="submit" value="いいね取り消す">
+           </form>
+         </div>
+        @else
+         <div class="col-md-3">
+           <form action="/posts/{{ $post->id }}/favorites" method="POST">
+           @csrf
+           <input type="submit" value="いいね">
+           </form>
+         </div>
+        @endif
+        
         <script>
             function deletePost(e){
                 'use strict';

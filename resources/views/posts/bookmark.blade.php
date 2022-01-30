@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.app')　　　　　　　　　　　　　　　　　　
+
 @section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -13,8 +14,25 @@
 
     </head>
     <body>
-     <h1 class="page-heading">ブックマークした記事</h1>
-     <div class="bookmaark">
-         {{ $post->user->name }}
-     </div>
+       {{Auth::user()->name}}
+     
+       <h1>ブックマーク一覧</h1>
+       <div class='bookmark'>
+            @foreach ($user->posts as $post)
+                <div class='post'>
+                   
+                    <p>{{ $post->title }}</p>
+                </div>
+            @endforeach
+       
+       </div>
+       
+       <div class='paginate'>
+            
+       </div>
+      
+       
+       
     </body>
+</html>
+@endsection

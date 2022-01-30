@@ -26,15 +26,15 @@
     </div>
     <div class="post-control">
         @if (!Auth::user()->is_bookmark($post->id))
-        <form action="{{ route('post_user.store', $post) }}" method="post">
+        <form action="{{ route('favorites', $post) }}" method="post">
             @csrf
-            <button>お気に入り登録</button>
+             <input type="submit" value="ブックマーク登録"/>
         </form>
         @else
-        <form action="{{ route('post_user.destroy', $post) }}" method="post">
+        <form action="{{ route('unfavorites', $post) }}" method="post">
             @csrf
             @method('delete')
-            <button>お気に入り解除</button>
+             <input type="submit" value="ブックマーク解除"/>
         </form>
         @endif
     </div>
