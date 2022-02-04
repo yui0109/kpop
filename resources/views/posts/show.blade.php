@@ -18,9 +18,9 @@
             <h2 class='title'>{{ $post->title }}</h2>
             <p class='body'>{{ $post->body }}</p>
             <p class='updated_at'>{{ $post->updated_at }}</p>
-            <p >アイドルは{{ $post->idol->name }}</p>
+            
         </div>
-        <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
+        <p class="edit"><a href="/posts/{{ $post->id }}/edit"><button type="button" class="btn btn-primary">編集</button></a></p>
     　  <form action="/posts/{{ $post->id }}" id="form_delete" method="post">
             @csrf
             @method('DELETE')
@@ -37,14 +37,14 @@
          <div class="col-md-3">
            <form action="/posts/{{ $post->id }}/unfavorites" method="POST">
            @csrf
-           <input type="submit" value="いいね取り消す">
+           <input class="btn btn-outline-primary"　type="submit" value="ブックマークを解除">
            </form>
          </div>
         @else
          <div class="col-md-3">
            <form action="/posts/{{ $post->id }}/favorites" method="POST">
            @csrf
-           <input type="submit" value="いいね">
+           <input class="btn btn-outline-primary"　type="submit" value="ブックマークに登録">
            </form>
          </div>
         @endif

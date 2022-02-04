@@ -22,7 +22,7 @@
             @foreach ($idols as $idol)
                 <div class='post'>
                    
-                    <p class='body'><a href='/posts/{{ $idol->post->id }}'>{{ $idol->name }}</a>></p>
+                    <h2 class='body'><a href='/posts/{{ $idol->post->id }}'>{{ $idol->name }}</a></h2>
                 </div>
             @endforeach
         {{ $message }}

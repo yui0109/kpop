@@ -21,7 +21,7 @@
             @foreach ($idols as $idol)
                 <div class='post'>
                    
-                    <p class='body'>{{ $idol->name }}</p>
+                    <h3 class='body'>{{ $idol->name }}</h3>
                 </div>
             @endforeach
        </div>
@@ -29,6 +29,7 @@
        <div class='paginate'>
             
        </div>
+    <div class="back">[<a href="/">戻る</a>]</div>
       
        
        

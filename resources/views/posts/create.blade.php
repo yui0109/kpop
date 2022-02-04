@@ -23,6 +23,7 @@
             </div>
             <div class="category">
               <h2>Category</h2>
+              
               <select name="post[idol_id]">
               @foreach($idols as $idol)
                <option value="{{ $idol->id }}">{{ $idol->name }}</option>

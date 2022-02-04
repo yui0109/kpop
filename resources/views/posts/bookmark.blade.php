@@ -18,10 +18,11 @@
      
        <h1>ブックマーク一覧</h1>
        <div class='bookmark'>
-            @foreach ($user->posts as $post)
+            @foreach ($posts as $post)
                 <div class='post'>
                    
-                    <p>{{ $post->title }}</p>
+                    <h2><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h2>
+                
                 </div>
             @endforeach
        

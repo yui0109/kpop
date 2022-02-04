@@ -10,7 +10,9 @@
 
 </head>
 <body>
-    <h1>あなたにおすすめのkpopアイドルは？</h1>
+    <div id="title">
+        <h1>あなたにおすすめのK-POPアイドルは？</h1></div>
+    
     <hr />
     <div id="main">
         <div id="question_area">

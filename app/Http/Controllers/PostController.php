@@ -6,6 +6,7 @@ use App\Post;
 use App\Idol;
 use App\User;
 use App\Revision;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
@@ -49,9 +50,12 @@ class PostController extends Controller
        return redirect('/');
     }
     
-    public function bookmark(Post $post , User $user)
+    public function bookmark()
     {
-        return view('posts/bookmark')->with(['posts' => $post , 'user' => $user]);
+        $user = Auth::user();
+        $posts = $user->posts;
+        
+        return view('posts/bookmark')->with(['posts'=> $posts]);
     }
     
     
